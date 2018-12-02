@@ -7,7 +7,7 @@ int file_count(char filename[MAX_FILE_NAME]) {
     char c;
     fp = fopen(filename, "r");
     if (fp == NULL) {
-        printf("could not open file %s", filename);
+        printf("could not open file %s\n", filename);
         return -1;
     }
     for (c = getc(fp); c != EOF; c = getc(fp))

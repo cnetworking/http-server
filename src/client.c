@@ -34,7 +34,7 @@ int main(int argc, char *argv[]) {
     struct sockaddr_in server_address;
     server_address.sin_family = AF_INET;
     server_address.sin_port = htons(port);
-    inet_aton(ip, &server_address.sin_addr.s_addr);
+    server_address.sin_addr.s_addr = inet_addr(ip);
 
     // Connect to the server address
     int connection_status = connect(
@@ -53,7 +53,7 @@ int main(int argc, char *argv[]) {
     // Recieve the response
     recv(client_socket, &response, sizeof(response), 0);
 
-    pritnf("server: %s\n", response);
+    printf("server: %s\n", response);
 
     // Close the socket
     close(client_socket);

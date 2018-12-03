@@ -45,5 +45,9 @@ int main(int argc, char *argv[]) {
     printf("awaiting connections\n");
     listen(server_socket, MAX_CLIENTS);
 
+    int client_socket;
+
+    
+
     return 0;
 }

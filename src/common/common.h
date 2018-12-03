@@ -5,9 +5,6 @@
 #define BODY_SIZE 2048
 #define HEADER_SIZE 2176
 
-// Code to print the info boxes
-#include "ui/ui.h"
-
 // Count the amount of lines in a file
 int file_count(char filename[MAX_FILE_NAME]);
 

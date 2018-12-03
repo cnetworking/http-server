@@ -22,5 +22,5 @@ int main(int argc, char *argv[]) {
         ip = argv[1];
     }
 
-    clientbox();
+    clientbox(ip, port);
 }

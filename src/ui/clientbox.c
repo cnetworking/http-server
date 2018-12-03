@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <string.h>
 
-#include "../common.h"
+#include "../common/common.h"
 
 void clientbox(char *ip, int port) {
     // Just some code to print this pretty little box

@@ -24,6 +24,8 @@ int main(int argc, char *argv[]) {
     char http_header[HEADER_SIZE] = "HTTP/1.0 200 OK\r\n\n";
     strcat(http_header, response_body);
 
+    printf("header: \n%s\n", http_header);
+
     // Create the server socket
     int server_socket;
     server_socket = socket(AF_INET, SOCK_STREAM, 0);
@@ -53,6 +55,8 @@ int main(int argc, char *argv[]) {
         if (client_socket == -1) {
             printf("unable to accept client\n");
         } else {
+            client_count++;
+            printf("accepted the client %i\n", client_socket);
             send(client_socket, http_header, sizeof(http_header), 0);
             // Close the connection with the client
             close(client_socket);

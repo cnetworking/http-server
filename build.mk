@@ -1,4 +1,4 @@
-TARGET_EXEC ?= $(EXEC).out
+TARGET_EXEC ?= $(EXEC).app
 
 BUILD_DIR ?= ./build
 SRC_DIRS ?= ./src

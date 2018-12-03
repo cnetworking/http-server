@@ -10,5 +10,6 @@ A simple HTTP server in C.
  * To build the server: `make -f build.mk EXEC=server`
 
 ## Syntax
- * To run the server: `./server.out <port>`
- * To run the client: `./client.out <ip> <port>`
+ When running the server, make sure that the static files are in the correct place.
+ * To run the server: `./build/server.out <port>`
+ * To run the client: `./build/client.out <ip> <port>`

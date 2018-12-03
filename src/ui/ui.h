@@ -7,5 +7,4 @@ void serverbox(int port);
 // Print the client info box
 void clientbox(char *ip, int port);
 
-
 #endif

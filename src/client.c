@@ -34,7 +34,9 @@ int main(int argc, char *argv[]) {
     struct sockaddr_in server_address;
     server_address.sin_family = AF_INET;
     server_address.sin_port = htons(80);
-    inet_aton(address, )
+    inet_aton(ip, &server_address.sin_addr.s_addr);
+
+    return 0;
 
 
 }

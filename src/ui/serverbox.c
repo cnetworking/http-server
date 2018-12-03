@@ -2,6 +2,11 @@
 #include <stdio.h>
 #include <string.h>
 
+#include <openssl/applink.c>
+#include <openssl/bio.h>
+#include <openssl/ssl.h>
+#include <openssl/err.h>
+
 #include "../common/common.h"
 
 void serverbox(int port) {

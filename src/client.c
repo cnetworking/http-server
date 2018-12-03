@@ -44,7 +44,7 @@ int main(int argc, char *argv[]) {
     );
 
     // Create the request
-    char *request = "GET HTTP/1.0\r\n\n";
+    char *request = "GET / HTTP/1.0\r\n\n";
     char response[HEADER_SIZE];
 
     // Send the request

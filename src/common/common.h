@@ -8,4 +8,7 @@
 // Count the amount of lines in a file
 int file_count(char filename[MAX_FILE_NAME]);
 
+// Get a local ip address
+char *get_ip(char *type);
+
 #endif

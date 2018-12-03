@@ -30,13 +30,33 @@ int main(int argc, char *argv[]) {
     int client_socket;
     client_socket = socket(AF_INET, SOCK_STREAM, 0);
 
-    // Connect to the server address
+    // Initialize the server address
     struct sockaddr_in server_address;
     server_address.sin_family = AF_INET;
-    server_address.sin_port = htons(80);
+    server_address.sin_port = htons(port);
     inet_aton(ip, &server_address.sin_addr.s_addr);
 
+    // Connect to the server address
+    int connection_status = connect(
+      client_socket,
+      (struct sockaddr *) &server_address,
+      sizeof(server_address)
+    );
+
+    // Create the request
+    char *request = "GET HTTP/1.0\r\n\n";
+    char response[HEADER_SIZE];
+
+    // Send the request
+    send(client_socket, request, sizeof(request), 0);
+
+    // Recieve the response
+    recv(client_socket, &response, sizeof(response), 0);
+
+    pritnf("server: %s\n", response);
+
+    // Close the socket
+    close(client_socket);
+
     return 0;
-
-
 }

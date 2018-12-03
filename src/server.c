@@ -33,7 +33,7 @@ int main(int argc, char *argv[]) {
     fgets(response_body, sizeof(response_body), html_data);
 
     // Initialize the http header
-    char http_header[HEADER_SIZE] = "HTTP/1.0 200 OK\r\n\n";
+    char http_header[HEADER_SIZE] = "HTTP/1.1 200 OK\r\n\n";
     strcat(http_header, response_body);
     // printf("header: \n%s\n", http_header);
 

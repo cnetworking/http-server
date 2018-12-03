@@ -44,15 +44,15 @@ int main(int argc, char *argv[]) {
     );
 
     // Create the request
-    char *request = "GET / HTTP/1.0\r\n\n";
+    char *request = "GET / HTTP/1.1\r\n\r\n";
     char response[HEADER_SIZE];
 
     // Send the request
     send(client_socket, request, sizeof(request), 0);
+    printf("something\n");
 
     // Recieve the response
     recv(client_socket, &response, sizeof(response), 0);
-
     printf("server: %s\n", response);
 
     // Close the socket

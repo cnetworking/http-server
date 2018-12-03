@@ -48,12 +48,12 @@ int main(int argc, char *argv[]) {
     char response[HEADER_SIZE];
 
     // Send the request
+    printf("sending response\n");
     send(client_socket, request, sizeof(request), 0);
-    printf("something\n");
 
     // Recieve the response
     recv(client_socket, &response, sizeof(response), 0);
-    printf("server: %s\n", response);
+    printf("%s\n", response);
 
     // Close the socket
     close(client_socket);

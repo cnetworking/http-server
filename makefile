@@ -13,7 +13,7 @@ HEADERS = $(shell find . -name "*.h")
 
 all:
 	make sockets
-	# make build
+	make build
 sockets:
 	make client
 	make server
@@ -26,9 +26,9 @@ server: $(SOURCE) $(HEADERS)
 checkdir:
 	$(MKDIR_P) $(dir $(BIN))
 .PHONY: build
-# build:
-# 	make -f build.mk EXEC=server
-# 	make -f build.mk EXEC=client
+build:
+	make -f build.mk EXEC=server
+	make -f build.mk EXEC=client
 clean:
 	rm -rf $(BIN)*
 	rm -rf $(BUILD)*

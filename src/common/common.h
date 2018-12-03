@@ -3,7 +3,7 @@
 
 #define MAX_FILE_NAME 16
 #define BODY_SIZE 2048
-#define HEADER_SIZE 2176 
+#define HEADER_SIZE 2176
 
 // Count the amount of lines in a file
 int file_count(char filename[MAX_FILE_NAME]);
@@ -22,5 +22,8 @@ void clear();
 
 // Count the length of an int
 int int_len(int i);
+
+// Print the server info box
+void serverbox(int port);
 
 #endif

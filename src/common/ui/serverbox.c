@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <string.h>
 
-#include "common.h"
+#include "../common.h"
 
 void serverbox(int port) {
     // Just some code to print this pretty little box

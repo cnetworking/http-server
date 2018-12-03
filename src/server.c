@@ -16,6 +16,38 @@ int main(int argc, char *argv[]) {
     FILE *html_data;
     html_data = fopen("./src/static/index.html", "r");
     
+    // Set the server's port number based off of arguments
+    int port;
+    if (argc < 2 || argc > 2 || to_int(argv[1]) <= 0) {
+        printf("syntax: ./server.out <port>\n");
+        exit(-1);
+    } else {
+        port = to_int(argv[1]);
+    }
+
+    // Just some code to print this pretty little box
+    char *ipv4 = get_ip("en0");
+    int ipv4_size = strlen(ipv4);
+    int ip_spaces = 18 - ipv4_size;
+    
+    int port_size = int_len(port);
+    int p_spaces = abs(18 - port_size);
+
+    clear();
+    printf("# # # # # # # # # # # # # # # # # # # #\n");
+    printf("#           SERVER INITIATED          #\n");
+    printf("#           PORT   %i", port);
+    for (int i = 0; i < p_spaces; i++) {
+        printf(" ");
+    }
+    printf(" #\n");
+    printf("#           IPv4   %s", ipv4);
+    for (int i = 0; i < ip_spaces; i++) {
+        printf(" ");
+    }
+    printf(" #\n");
+    printf("# # # # # # # # # # # # # # # # # # # #\n");
+    
     // Read from the file
     char response_body[BODY_SIZE];
     fgets(response_body, sizeof(response_body), html_data);

@@ -8,7 +8,19 @@
 // Count the amount of lines in a file
 int file_count(char filename[MAX_FILE_NAME]);
 
-// Get a local ip address
+// Remove the newline from the end of a string
+void remove_newline(char *s);
+
+// Convert string to an int
+int to_int(char stringNumber[]);
+
+// Get a local ip
 char *get_ip(char *type);
+
+// Clear the screen
+void clear();
+
+// Count the length of an int
+int int_len(int i);
 
 #endif

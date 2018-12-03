@@ -36,6 +36,8 @@ int main(int argc, char *argv[]) {
     char http_header[HEADER_SIZE] = "HTTP/1.0 200 OK\r\n\n";
     strcat(http_header, response_body);
 
+    printf("header: \n%s\n", http_header);
+
     // Create the server socket
     int server_socket;
     server_socket = socket(AF_INET, SOCK_STREAM, 0);
@@ -43,7 +45,7 @@ int main(int argc, char *argv[]) {
     // Define the socket address
     struct sockaddr_in server_address;
     server_address.sin_family = AF_INET;
-    server_address.sin_port = htons(3000);
+    server_address.sin_port = htons(port);
     server_address.sin_addr.s_addr = INADDR_ANY;
 
     // Bind the socket to the network

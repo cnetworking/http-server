@@ -17,12 +17,12 @@ int main(int argc, char *argv[]) {
     html_data = fopen("./src/static/index.html", "r");
     
     // Read from the file
-    char response_data[1024];
-    fgets(response_data, sizeof(response_data), html_data);
+    char response_body[BODY_SIZE];
+    fgets(response_body, sizeof(response_body), html_data);
 
     // Initialize the http header
-    char http_header[2048] = "HTTP/1.0 200 OK\r\n\n";
-    strcat(http_header, response_data);
+    char http_header[HEADER_SIZE] = "HTTP/1.0 200 OK\r\n\n";
+    strcat(http_header, response_body);
 
     // Create the server socket
     int server_socket;
@@ -40,14 +40,25 @@ int main(int argc, char *argv[]) {
       (struct sockaddr *) &server_address,
       sizeof(server_address)
     );
-    
     // Start listening to connections
+    int client_count = 0;
     printf("awaiting connections\n");
     listen(server_socket, MAX_CLIENTS);
 
-    int client_socket;
+    // Accept connections from client sockets
+    while (client_count < 5) {
+        // Accept the connection
+        int client_socket = accept(server_socket, NULL, NULL);
 
-    
+        if (client_socket == -1) {
+            printf("unable to accept client\n");
+        } else {
+            send(client_socket, http_header, sizeof(http_header), 0);
+            // Close the connection with the client
+            close(client_socket);
+            // memset(client_socket, 0, sizeof(client_socket));
+        }
+    }
 
     return 0;
 }

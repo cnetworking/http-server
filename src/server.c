@@ -36,8 +36,6 @@ int main(int argc, char *argv[]) {
     char http_header[HEADER_SIZE] = "HTTP/1.0 200 OK\r\n\n";
     strcat(http_header, response_body);
 
-    printf("header: \n%s\n", http_header);
-
     // Create the server socket
     int server_socket;
     server_socket = socket(AF_INET, SOCK_STREAM, 0);
